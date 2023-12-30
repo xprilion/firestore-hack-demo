@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "firestore-hack-demo",
+    "alias-name": "firestore-hack-demo",
+    "firestore-hack-demo": "firestore-hack-demo"
+  },
+  "targets": {},
+  "etags": {}
+}
