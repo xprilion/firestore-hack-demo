@@ -78,7 +78,7 @@
         document.getElementById('saveNoteButton').addEventListener('click', () => {
             const noteContent = document.getElementById('noteInput').value;
             if (noteContent.trim() !== '') {
-                addDoc(collection(firestore, 'notes'), {
+                addDoc(collection(firestore, 'notesx'), {
                     uid: auth.currentUser.uid,
                     content: noteContent,
                     timestamp: serverTimestamp()
@@ -95,17 +95,17 @@
             const notesContainer = document.getElementById('notesContainer');
             notesContainer.innerHTML = '';
 
-            const q = query(collection(firestore, "notes"), where("uid", "==", auth.currentUser.uid));
+            const q = query(collection(firestore, "notesx"), where("uid", "==", auth.currentUser.uid));
 
             const querySnapshot = getDocs(q).then(querySnapshot => {
-                    querySnapshot.forEach(doc => {
-                        const note = doc.data();
-                        const noteElement = document.createElement('div');
-                        noteElement.classList.add('note');
-                        noteElement.textContent = note.content;
-                        notesContainer.appendChild(noteElement);
-                    });
+                querySnapshot.forEach(doc => {
+                    const note = doc.data();
+                    const noteElement = document.createElement('div');
+                    noteElement.classList.add('note');
+                    noteElement.textContent = note.content;
+                    notesContainer.appendChild(noteElement);
                 });
+            });
         }
 
     </script>
