@@ -6,6 +6,8 @@
     <!-- PicoCSS Stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
     <div id="loginContainer" class="container">
@@ -14,7 +16,7 @@
 
     <div id="dashboardContainer" class="container" style="display:none;">
         <button id="logoutButton" class="button">Logout</button>
-        <h1>Welcome, <span id="userName"></span></h1>
+        <h1>Welcome, <br /> <span id="userName"></span></h1>
         <textarea id="noteInput" placeholder="Write a note..." class="input"></textarea>
         <button id="saveNoteButton" class="button primary">Save Note</button>
         <div id="notesContainer"></div>
@@ -22,10 +24,16 @@
 
     <footer class="container">
         <small>Built with ♥ by <a href="https://github.com/xprilion">Anubhav</a> • <a href="https://xprilion.com">xprilion.com</a> • <a href="https://github.com/xprilion/firestore-hack-demo">View Source</a></small>
+        <br />
+        <small>Connected to <b><span id='collectionName'>collection_name</span></b></small>
     </footer>
 
     <script type="module">
         const collection_name = "notes_cloud_pune";
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            document.getElementById('collectionName').innerText = collection_name
+        });
 
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'
 

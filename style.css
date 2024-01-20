@@ -8,11 +8,10 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    padding: 20px;
 }
 
 .container {
-    width: 80%;
+    max-width: 500px;
     margin: auto;
     overflow: hidden;
 }
@@ -20,7 +19,6 @@ body {
 #loginContainer,
 #dashboardContainer {
     text-align: center;
-    padding: 20px;
     margin-top: 50px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
