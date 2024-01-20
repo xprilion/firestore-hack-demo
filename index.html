@@ -21,6 +21,8 @@
     </div>
 
     <script type="module">
+        const collection_name = "notes_cloud_pune";
+
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'
 
         // Add Firebase products that you want to use
@@ -78,7 +80,7 @@
         document.getElementById('saveNoteButton').addEventListener('click', () => {
             const noteContent = document.getElementById('noteInput').value;
             if (noteContent.trim() !== '') {
-                addDoc(collection(firestore, 'notesx'), {
+                addDoc(collection(firestore, collection_name), {
                     uid: auth.currentUser.uid,
                     content: noteContent,
                     timestamp: serverTimestamp()
@@ -95,7 +97,7 @@
             const notesContainer = document.getElementById('notesContainer');
             notesContainer.innerHTML = '';
 
-            const q = query(collection(firestore, "notesx"), where("uid", "==", auth.currentUser.uid));
+            const q = query(collection(firestore, collection_name), where("uid", "==", auth.currentUser.uid));
 
             const querySnapshot = getDocs(q).then(querySnapshot => {
                 querySnapshot.forEach(doc => {
